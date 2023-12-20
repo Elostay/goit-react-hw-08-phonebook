@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
-import { Form, Input, Button, Label } from '../ContactForm/ContactForm.styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/contacts/selectors';
 import { addContactAction } from '../../redux/contacts/operations';
-
-const nameId = nanoid();
-const numberId = nanoid();
+import { Form } from './ContactForm.styled';
+import { Button, TextField } from '@mui/material';
 
 const ContactForm = ({ sumbit }) => {
   const [name, setName] = useState('');
@@ -47,27 +45,32 @@ const ContactForm = ({ sumbit }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Label htmlFor={nameId}>Name</Label>
-      <Input
+      <TextField
+        color="secondary"
+        id="standard-basic"
+        label="Name"
+        variant="outlined"
         type="text"
         name="name"
         value={name}
-        id={nameId}
         onChange={handleChange}
         required
       />
 
-      <Label htmlFor={numberId}>Number</Label>
-      <Input
+      <TextField
+        color="secondary"
+        id="standard-basic"
+        label="Number"
+        variant="outlined"
         type="tel"
         name="number"
         value={number}
-        id={numberId}
         onChange={handleChange}
         required
       />
-
-      <Button type="submit">Add contact</Button>
+      <Button variant="outlined" color="secondary" type="submit">
+        Add contact
+      </Button>
     </Form>
   );
 };

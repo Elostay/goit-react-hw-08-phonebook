@@ -1,23 +1,19 @@
 import styled from '@emotion/styled';
 
-export const FilterLabel = styled.label`
-  color: #f7e5d5;
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 40px;
-`;
-export const Input = styled.input`
-  margin-bottom: 40px;
-  padding: 15px;
-  border-radius: 30px;
-  width: 200px;
-`;
-
-export const Container = styled.div`
+export const FilterContainer = styled.form`
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  max-width: 700px;
-  margin: 0 auto;
+  align-items: center;
+
+  gap: 20px;
+  background-color: rgba(235, 200, 153, 0);
+  @media (max-width: 1101px) {
+    font-size: 40px;
+  }
+  @media (max-width: 900px) {
+    font-size: 30px;
+  }
+  @media (max-width: 680px) {
+    font-size: 20px;
+  }
 `;

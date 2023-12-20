@@ -1,34 +1,57 @@
 import styled from '@emotion/styled';
 
-export const List = styled.ul`
+export const ListContainer = styled.ul`
+  margin-top: 80px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  gap: 40px;
-  max-width: 700px;
-  margin: 0 auto;
+  gap: 20px;
+  background-color: rgba(235, 200, 153, 0);
+  @media (max-width: 1101px) {
+    font-size: 40px;
+  }
+  @media (max-width: 900px) {
+    font-size: 30px;
+  }
+  @media (max-width: 680px) {
+    font-size: 20px;
+  }
 `;
+
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #f7e5d5;
-  font-weight: 700;
-  font-size: 20px;
-`;
-export const Button = styled.button`
-  width: 160px;
-  background-color: #e68932;
-  padding: 15px;
-  border-radius: 30px;
-  color: #f7e5d5;
-  font-weight: 700;
-  font-size: 20px;
-`;
-export const NumberContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  font-size: 40px;
   gap: 20px;
+  background-color: rgba(235, 200, 153, 0);
+  @media (max-width: 1101px) {
+    font-size: 40px;
+  }
+  @media (max-width: 900px) {
+    font-size: 30px;
+  }
+  @media (max-width: 680px) {
+    font-size: 20px;
+  }
 `;
-export const Number = styled.p`
-  font-size: 30px;
+
+export const Info = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+  background-color: rgba(235, 200, 153, 0);
+  @media (max-width: 1101px) {
+    font-size: 40px;
+  }
+  @media (max-width: 900px) {
+    font-size: 30px;
+  }
+  @media (max-width: 680px) {
+    font-size: 20px;
+  }
 `;

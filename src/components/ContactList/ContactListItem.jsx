@@ -1,8 +1,11 @@
 import { useDispatch } from 'react-redux';
-import { Item, Button, NumberContainer, Number } from './ContactList.styled';
 import { deleteContactAction } from '../../redux/contacts/operations';
+import Avatar from '@mui/material/Avatar';
+import { Info, Item } from './ContactList.styled';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const ContactListItem = ({ id, name, number }) => {
+export default function ContactListItem({ id, name, number, color }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -10,14 +13,19 @@ const ContactListItem = ({ id, name, number }) => {
   };
   return (
     <Item id={id}>
-      <NumberContainer>
-        <p>{name}:</p> <Number>{number}</Number>
-      </NumberContainer>
-      <Button type="button" onClick={handleDelete}>
-        Delete
-      </Button>
+      <Info>
+        <Avatar sx={{ bgcolor: color }}>{name}</Avatar>
+        <p>{name}:</p> <p>{number}</p>
+      </Info>
+
+      <IconButton
+        type="button"
+        onClick={handleDelete}
+        aria-label="delete"
+        size="large"
+      >
+        <DeleteIcon fontSize="inherit" />
+      </IconButton>
     </Item>
   );
-};
-
-export default ContactListItem;
+}

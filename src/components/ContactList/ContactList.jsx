@@ -1,10 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { List } from './ContactList.styled';
 import ContactListItem from './ContactListItem';
 import { selectError, selectLoading } from '../../redux/contacts/selectors';
 import { useEffect } from 'react';
 import { fetchContactsAction } from '../../redux/contacts/operations';
 import { selectFilteredContacts } from '../../redux/selectors';
+import { ListContainer } from './ContactList.styled';
+
+function generateRandomColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  const color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+
+  return color;
+}
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
@@ -18,12 +28,18 @@ const ContactList = () => {
   }, [dispatch]);
 
   return (
-    <List>
+    <ListContainer>
       {isLoading && !error && <b>Request in progress</b>}
       {contacts.map(({ name, id, number }) => (
-        <ContactListItem key={id} id={id} name={name} number={number} />
+        <ContactListItem
+          key={id}
+          id={id}
+          name={name}
+          number={number}
+          color={generateRandomColor()}
+        />
       ))}
-    </List>
+    </ListContainer>
   );
 };
 

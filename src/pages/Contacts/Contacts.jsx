@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactsAction } from '../../redux/contacts/operations';
 import { selectLoading } from '../../redux/contacts/selectors';
-import '../GlobalPagesStyles.css';
+
 import { Container } from 'GlobalStyles.styled';
 
 export default function Contacts() {
@@ -19,7 +19,6 @@ export default function Contacts() {
 
   return (
     <>
-      <div className="gradient-background"></div>
       <Container>
         <div>{isLoading && 'Request in progress...'}</div>
         <ContactForm />

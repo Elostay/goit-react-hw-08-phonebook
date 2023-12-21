@@ -1,5 +1,5 @@
 import { HomeContainer, Smile, Title } from './Home.styled';
-import { Container } from '../../GlobalStyles.styled';
+import { Container } from '../../components/Container.styled';
 
 export default function Home() {
   return (

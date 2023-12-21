@@ -1,4 +1,4 @@
-import { Container } from '../../GlobalStyles.styled';
+import { Container } from '../../components/Container.styled';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 export default function Register() {

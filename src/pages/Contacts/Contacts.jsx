@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactsAction } from '../../redux/contacts/operations';
 import { selectLoading } from '../../redux/contacts/selectors';
 
-import { Container } from 'GlobalStyles.styled';
+import { Container } from 'components/Container.styled';
 
 export default function Contacts() {
   const dispatch = useDispatch();

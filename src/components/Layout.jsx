@@ -4,19 +4,23 @@ import { AppBar } from './AppBar/AppBar';
 import {
   AnimatedBackground,
   CommonBackground,
-} from 'pages/Background/Background';
-import { useAuth } from 'hooks/useAuth';
+} from 'components/Background/Backgrounds';
+import { routes } from 'routes/routes';
+import { useLocation } from 'react-router-dom/dist';
 
 export const Layout = () => {
-  const { isLoggedIn } = useAuth();
-
+  const { pathname } = useLocation();
   return (
     <>
       <AppBar />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-      {isLoggedIn ? <CommonBackground /> : <AnimatedBackground />}
+      {pathname === routes.contacts ? (
+        <CommonBackground />
+      ) : (
+        <AnimatedBackground />
+      )}
     </>
   );
 };

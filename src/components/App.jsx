@@ -2,11 +2,12 @@ import React, { lazy, useEffect } from 'react';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
-import { RestrictedRoute } from './RestrictedRoute';
+import { RestrictedRoute } from '../routes/RestrictedRoute';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks/useAuth';
 import { refreshUser } from '../redux/auth/operations';
-import { PrivateRoute } from './PrivateRoute';
+import { PrivateRoute } from '../routes/PrivateRoute';
+import { routes } from 'routes/routes';
 
 const HomePage = lazy(() => import('../pages/Home/Home'));
 const RegisterPage = lazy(() => import('../pages/Register/Register'));
@@ -16,7 +17,7 @@ const ContactsPage = lazy(() => import('../pages/Contacts/Contacts'));
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-
+  const { register, login, home, contacts } = routes;
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -26,34 +27,34 @@ const App = () => {
   ) : (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path={home} element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route
-            path="/register"
+            path={register}
             element={
               <RestrictedRoute
-                redirectTo="/contacts"
+                redirectTo={contacts}
                 component={<RegisterPage />}
               />
             }
           />
           <Route
-            path="/login"
+            path={login}
             element={
               <RestrictedRoute
-                redirectTo="/contacts"
+                redirectTo={contacts}
                 component={<LoginPage />}
               />
             }
           />
           <Route
-            path="/contacts"
+            path={contacts}
             element={
-              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+              <PrivateRoute redirectTo={login} component={<ContactsPage />} />
             }
           />
         </Route>
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to={home} />} />
       </Routes>
     </>
   );

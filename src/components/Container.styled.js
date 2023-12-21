@@ -9,9 +9,4 @@ export const Container = styled.div`
 
   color: #333;
   font-family: Arial, sans-serif;
-
-  /* @media (max-width: 600px) {
-    background-color: #000;
-    color: #fff;
-  } */
 `;

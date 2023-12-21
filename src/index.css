@@ -52,3 +52,15 @@ fieldset {
 	margin: 0;
 	border: none;
 }
+body::-webkit-scrollbar {
+	width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+	background: #333;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: whitesmoke;
+	border-radius: 20px;
+}

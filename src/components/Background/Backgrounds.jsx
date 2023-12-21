@@ -1,14 +1,14 @@
-import '../GlobalPagesStyles.css';
+import { AnimatedBg, GradientBackground } from './Backgrounds.styled';
 
 export const AnimatedBackground = () => {
   return (
-    <div className="background">
+    <AnimatedBg>
       {new Array(20).fill(0).map((item, index) => (
         <span key={index}></span>
       ))}
-    </div>
+    </AnimatedBg>
   );
 };
 export const CommonBackground = () => {
-  return <div className="gradient-background"></div>;
+  return <GradientBackground></GradientBackground>;
 };

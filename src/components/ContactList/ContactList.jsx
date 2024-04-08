@@ -30,10 +30,10 @@ const ContactList = () => {
   return (
     <ListContainer>
       {isLoading && !error && <b>Request in progress</b>}
-      {contacts.map(({ name, id, number }) => (
+      {contacts.map(({ name, _id, number }) => (
         <ContactListItem
-          key={id}
-          id={id}
+          key={_id}
+          id={_id}
           name={name}
           number={number}
           color={generateRandomColor()}
